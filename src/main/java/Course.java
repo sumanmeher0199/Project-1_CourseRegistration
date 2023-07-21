@@ -50,9 +50,24 @@ public class Course {
 		duration=sc.nextLine();
 		setDuration(duration);
 		
-		System.out.println("Enter  the Content of the course using comma (,): ");
+		System.out.println("Enter the Content of the course using comma (,): ");
 		content=sc.nextLine();
 		setContent(content);
+	}
+	
+	private void commaSeparator(){
+		String[] cont= content.split(",");
+		for(String word:cont) {
+			System.out.println(word.trim());
+		}
+	}
+	
+	void displayCourse() {
+		System.out.println("Name: "+name);
+		System.out.println("Price: "+price);
+		System.out.println("Duration: "+duration);
+		System.out.println("Course Content: ");
+		commaSeparator();
 	}
 	
 	ArrayList stud = new ArrayList();
