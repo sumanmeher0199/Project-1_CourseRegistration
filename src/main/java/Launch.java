@@ -14,7 +14,7 @@ public class Launch {
 		System.out.println("Authenticated..");
 		
 		//Add course
-		String cont;
+		String cont="yes";
 		while(!cont.equals("no")) {
 			Course c1 = new Course();
 //			c1.addCourse();

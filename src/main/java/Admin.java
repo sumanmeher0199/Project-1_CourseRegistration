@@ -11,9 +11,9 @@ public class Admin {
 		this.password = "Admin";
 	}
 	
-	ArrayList<Professor> professor;
-	ArrayList<Course> course;
-	ArrayList<Student> student;
+	ArrayList<Professor> professors;
+	ArrayList<Course> courses;
+	ArrayList<Student> students;
 	
 	boolean checkUsernamePassword() {
 		Scanner sc = new Scanner(System.in);
@@ -29,7 +29,7 @@ public class Admin {
 	}
 	
 	void addCourseInList(Course c) {
-		course.add(c);
+		courses.add(c);
 	}
 
 }
