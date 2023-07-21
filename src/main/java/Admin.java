@@ -1,9 +1,17 @@
+import java.util.ArrayList;
 
 public class Admin {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	
+	//Login Credentials
+	String username;
+	String password;
+	public Admin() {
+		username = "admin";
+		password = "Admin";
 	}
+	
+	ArrayList<Professor> professor;
+	ArrayList<Course> course;
+	ArrayList<Student> student;
 
 }
