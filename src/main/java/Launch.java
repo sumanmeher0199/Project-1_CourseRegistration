@@ -18,6 +18,7 @@ public class Launch {
 		while(!cont.equals("no")) {
 			Course c1 = new Course();
 			c1.addCourse();
+			//c1.displayCourse();
 			ad.addCourseInList(c1);
 			System.out.println("Do you want to Create more Courses:");
 			String  inp = sc.next();
