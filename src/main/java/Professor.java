@@ -10,5 +10,7 @@ public class Professor extends People{
 		
 	}
 	
+	
+	
 
 }

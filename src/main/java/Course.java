@@ -70,11 +70,11 @@ public class Course {
 		commaSeparator();
 	}
 	
-	ArrayList stud = new ArrayList();
+	ArrayList<Student> stud = new ArrayList<Student>();
 	
 	
 	
-	Professor prof=new Professor();
+	Professor prof;
 	
 	
 
