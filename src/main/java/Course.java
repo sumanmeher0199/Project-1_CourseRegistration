@@ -74,7 +74,7 @@ public class Course {
 	
 	
 	
-	Professor prof=new Professor();
+//	Professor prof=new Professor();
 	
 	
 

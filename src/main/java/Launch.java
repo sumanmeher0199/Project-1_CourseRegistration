@@ -9,23 +9,31 @@ public class Launch {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Welcome to Course Regestration Website: ");
 		Admin ad = new Admin();
-		boolean isAuth = ad.checkUsernamePassword();
-		if(!isAuth) {
-			System.out.println("Authentication Failed.. \nThanx for visiting us..");
-			System.exit(0);
-		}
-		System.out.println("Authenticated..");
+//		boolean isAuth = ad.checkUsernamePassword();
+//		if(!isAuth) {
+//			System.out.println("Authentication Failed.. \nThanx for visiting us..");
+//			System.exit(0);
+//		}
+//		System.out.println("Authenticated..");
 		
 		//Add course
 		String cont="yes";
 		while(!cont.equals("no")) {
 			Course c1 = new Course();
 			c1.addCourse();
-			//c1.displayCourse();
+			c1.displayCourse();
 			ad.addCourseInList(c1);
+			courseNo++;
 			System.out.println("Do you want to Create more Courses:");
 			String  inp = sc.next();
 			cont = inp;
+		}
+		
+		System.out.println("Welcome to Professor's Section.");
+		
+		int numOfCourse = ad.courses.size();
+		for(int i=0;i<numOfCourse;i++) {
+			Professor p1 = new Professor("Pr"+professorNo);
 		}
 		
 		
