@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Course {
 	String name;
@@ -33,6 +35,31 @@ public class Course {
 		this.content = content;
 	}
 	
+	//method to add course
+	void addCourse() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Name of the course: ");
+		name=sc.nextLine();
+		setName(name);
+		
+		System.out.println("Enter the Price of the course: ");
+		price=sc.nextInt();
+		setPrice(price);
+		
+		System.out.println("Enter the Duration of the course: ");
+		duration=sc.nextLine();
+		setDuration(duration);
+		
+		System.out.println("Enter the Content of the course using comma (,): ");
+		content=sc.nextLine();
+		setContent(content);
+	}
+	
+	ArrayList stud = new ArrayList();
+	
+	
+	
+	Professor prof=new Professor();
 	
 	
 
