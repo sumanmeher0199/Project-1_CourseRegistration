@@ -50,7 +50,7 @@ public class Course {
 		duration=sc.nextLine();
 		setDuration(duration);
 		
-		System.out.println("Enter the Content of the course using comma (,): ");
+		System.out.println("Enter  the Content of the course using comma (,): ");
 		content=sc.nextLine();
 		setContent(content);
 	}
