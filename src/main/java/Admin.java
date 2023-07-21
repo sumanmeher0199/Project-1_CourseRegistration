@@ -11,9 +11,9 @@ public class Admin {
 		this.password = "Admin";
 	}
 	
-	ArrayList<Professor> professors;
-	ArrayList<Course> courses;
-	ArrayList<Student> students;
+	ArrayList<Professor> professors = new ArrayList<Professor>();
+	ArrayList<Course> courses = new ArrayList<Course>();
+	ArrayList<Student> students = new ArrayList<Student>();
 	
 	boolean checkUsernamePassword() {
 		Scanner sc = new Scanner(System.in);
@@ -29,7 +29,14 @@ public class Admin {
 	}
 	
 	void addCourseInList(Course c) {
-		courses.add(c);
+		System.out.println(c.getName());
+		this.courses.add(c);
+	}
+	
+	void showAllCourses() {
+		for (Course course : courses) {
+			System.out.println(course.getName());
+		}
 	}
 
 }
