@@ -15,58 +15,63 @@ public class Course {
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public int getPrice() {
 		return price;
 	}
+
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	
+
 	public String getDuration() {
 		return duration;
 	}
+
 	public void setDuration(String duration) {
 		this.duration = duration;
 	}
-	
+
 	public String getContent() {
 		return content;
 	}
+
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
-	//method to add course
+
+	// method to add course
 	void addCourse() {
-		Scanner sc=new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the Name of the course: ");
-		name=sc.nextLine();
+		name = sc.nextLine();
 		setName(name);
-		
-		System.out.println("Enter the Price of the course: ");
-		price=sc.nextInt();
-		setPrice(price);
-		
+
 		System.out.println("Enter the Duration of the course: ");
-		duration=sc.nextLine();
+		duration = sc.nextLine();
 		setDuration(duration);
-		
+
 		System.out.println("Enter the Content of the course using comma (,): ");
-		content=sc.nextLine();
+		content = sc.nextLine();
 		setContent(content);
+
+		System.out.println("Enter the Price of the course: ");
+		price = sc.nextInt();
+		setPrice(price);
+
 	}
-	
-	private void commaSeparator(){
-		String[] cont= content.split(",");
-		for(String word:cont) {
+
+	private void commaSeparator() {
+		String[] cont = content.split(",");
+		for (String word : cont) {
 			System.out.println(word.trim());
 		}
 	}
-	
+
 	void displayCourse() {
 		System.out.println("Id: "+id);
 		System.out.println("Name: "+name);
@@ -75,13 +80,9 @@ public class Course {
 		System.out.println("Course Content: ");
 		commaSeparator();
 	}
-	
+
 	ArrayList<Student> stud = new ArrayList<Student>();
-	
-	
 
 	Professor prof;
-	
-	
 
 }
