@@ -29,13 +29,22 @@ public class Admin {
 	}
 	
 	void addCourseInList(Course c) {
-		System.out.println(c.getName());
+//		System.out.println(c.getName());
 		this.courses.add(c);
 	}
 	
 	void showAllCourses() {
+		int i=0;
 		for (Course course : courses) {
-			System.out.println(course.getName());
+			System.out.println(i+")"+course.getName()+"("+course.id+")");
+//			course.displayCourse();
+			System.out.println("------");
+		}
+	}
+	
+	void showAllProfessors() {
+		for (var professor : professors) {
+			System.out.println(professor.getName()+"("+professor.getId()+")");
 		}
 	}
 

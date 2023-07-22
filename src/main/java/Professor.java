@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Professor extends People{
+//	Course 
 	
 	public Professor(String s) {
 		// TODO Auto-generated constructor stub
@@ -13,7 +14,6 @@ public class Professor extends People{
 		setName(sc.nextLine());
 		System.out.println("Enter the age of the Professor");
 		setAge(sc.nextInt());
-		
 	}
 	
 	

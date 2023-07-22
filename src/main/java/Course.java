@@ -6,6 +6,11 @@ public class Course {
 	int price;
 	String duration;
 	String content;
+	String id;
+	
+	public Course(String id) {
+		this.id = id;
+	}
 	
 	public String getName() {
 		return name;
@@ -63,6 +68,7 @@ public class Course {
 	}
 	
 	void displayCourse() {
+		System.out.println("Id: "+id);
 		System.out.println("Name: "+name);
 		System.out.println("Price: "+price);
 		System.out.println("Duration: "+duration);

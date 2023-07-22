@@ -19,7 +19,7 @@ public class Launch {
 		//Add course
 		String cont="yes";
 		while(!cont.equals("no")) {
-			Course c1 = new Course();
+			Course c1 = new Course("C"+courseNo);
 			c1.addCourse();
 			c1.displayCourse();
 			ad.addCourseInList(c1);
@@ -29,12 +29,19 @@ public class Launch {
 			cont = inp;
 		}
 		
+//		ad.showAllCourses();
+		
 		System.out.println("Welcome to Professor's Section.");
 		
 		int numOfCourse = ad.courses.size();
 		for(int i=0;i<numOfCourse;i++) {
 			Professor p1 = new Professor("Pr"+professorNo);
+			p1.addProfessor();
+			professorNo++;
+			
 		}
+		
+		ad.showAllProfessors();
 		
 		
 		
