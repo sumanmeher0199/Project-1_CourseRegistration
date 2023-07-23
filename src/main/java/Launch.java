@@ -14,7 +14,7 @@ public class Launch {
 //			System.out.println("Authentication Failed.. \nThanx for visiting us..");
 //			System.exit(0);
 //		}
-//		System.out.println("Authenticated..");
+//		System.out.println("Authenticated...");
 		
 		//Add course
 		String cont="yes";
@@ -27,6 +27,7 @@ public class Launch {
 			System.out.println("Do you want to Create more Courses:");
 			String  inp = sc.next();
 			cont = inp;
+			
 		}
 		
 //		ad.showAllCourses();
