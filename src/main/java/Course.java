@@ -98,6 +98,20 @@ public class Course {
 		System.out.println("Course Content: ");
 		commaSeparator();
 	}
+	
+	static void addCourseMain(Admin ad) {
+		Scanner sc = new Scanner(System.in);
+		String cont="yes";
+		while(!cont.equalsIgnoreCase("no")) {
+			Course c1 = new Course("C"+ad.courseNo++);
+			c1.addCourse();
+			c1.displayCourse();
+			ad.coursesSequence.add(c1.getId());
+			ad.addCourseInList(c1.getId(),c1);
+			System.out.println("Do you want to Create more Courses(Yes/No):");
+			cont = sc.next();
+		}
+	}
 
 	
 

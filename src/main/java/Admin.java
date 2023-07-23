@@ -13,13 +13,15 @@ public class Admin {
 		this.password = "Admin";
 	}
 	
-//	ArrayList<Professor> professors = new ArrayList<Professor>();
+	int courseNo = 1;
+	int professorNo = 1;
+	int studentNo = 1;
+	
 	Map<String, Professor> professors = new HashMap<String, Professor>();
 	
 	ArrayList<String> coursesSequence = new ArrayList<String>();
 	Map<String, Course> courses = new HashMap<String, Course>();
-	
-//	ArrayList<Student> students = new ArrayList<Student>();
+
 	Map<String, Student> students = new HashMap<String, Student>();
 	
 	boolean checkUsernamePassword() {
@@ -69,6 +71,32 @@ public class Admin {
 	void showAllStudents() {
 		for (Map.Entry m : students.entrySet()) {
 			System.out.println(m.getKey() + " -> " + m.getValue());
+		}
+	}
+	
+	static void printAdminMenu() {
+		System.out.println("----Admin Menu----");
+		System.out.println("1. Add Course");
+		System.out.println("2. Add Professor");
+		System.out.println("3. Add Student");
+		System.out.println("4. Goto Main Menu");
+	}
+	
+	static void adminMenu(Admin ad) {
+		Scanner sc = new Scanner(System.in);
+		printAdminMenu();
+		System.out.println("Select an option:");
+		int userInp = sc.nextInt();
+		if(userInp==1) {
+			Course.addCourseMain(ad);
+		}else if(userInp==2) {
+			
+		}else if(userInp==3) {
+			
+		}else if(userInp==4) {
+			
+		}else {
+			
 		}
 	}
 

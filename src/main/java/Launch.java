@@ -1,32 +1,36 @@
 import java.util.Scanner;
 
-public class Launch {
+import javax.swing.JTable.PrintMode;
 
+public class Launch {
 	public static void main(String[] args) {
-		int courseNo = 1;
-		int professorNo = 1;
-		int studentNo = 1;
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Welcome to Course Regestration Website: ");
 		Admin ad = new Admin();
-//		boolean isAuth = ad.checkUsernamePassword();
-//		if(!isAuth) {
-//			System.out.println("Authentication Failed.. \nThanx for visiting us..");
-//			System.exit(0);
-//		}
-//		System.out.println("Authenticated..");
+		boolean isAuth = ad.checkUsernamePassword();
+		if(!isAuth) {
+			System.out.println("Authentication Failed.. \nThanx for visiting us..");
+			System.exit(0);
+		}
+		System.out.println("Authenticated..");
+		
+		mainMenu(ad);
+		
+		
+		
 		
 		//Add course
 		String cont="yes";
-		while(!cont.equalsIgnoreCase("no")) {
-			Course c1 = new Course("C"+courseNo++);
-			c1.addCourse();
-			c1.displayCourse();
-			ad.coursesSequence.add(c1.getId());
-			ad.addCourseInList(c1.getId(),c1);
-			System.out.println("Do you want to Create more Courses:");
-			cont = sc.next();
-		}
+//		while(!cont.equalsIgnoreCase("no")) {
+//			Course c1 = new Course("C"+ad.courseNo++);
+//			c1.addCourse();
+//			c1.displayCourse();
+//			ad.coursesSequence.add(c1.getId());
+//			ad.addCourseInList(c1.getId(),c1);
+//			System.out.println("Do you want to Create more Courses:");
+//			cont = sc.next();
+//		}
 		
 //		ad.showAllCourses();
 		
@@ -35,7 +39,7 @@ public class Launch {
 		int numOfCourse = ad.courses.size();
 		for(int i=0;i<numOfCourse;i++) {
 			
-			Professor p1 = new Professor("Pr"+professorNo++);
+			Professor p1 = new Professor("Pr"+ad.professorNo++);
 			String courseId = ad.coursesSequence.get(i);
 			Course course = ad.courses.get(courseId);
 			System.out.println("Add Professor for Course "+course.getName());
@@ -55,7 +59,7 @@ public class Launch {
 		System.out.println("\nWelcome to Stuents section...");
 		cont="yes";
 		while(!cont.equalsIgnoreCase("no")) {
-			Student s1 = new Student("Sd"+studentNo++);
+			Student s1 = new Student("Sd"+ad.studentNo++);
 			s1.addStudent();
 			System.out.println("Available Course:");
 			ad.showAllCourses();
@@ -149,5 +153,33 @@ public class Launch {
 		
 
 	}
+	
+	static void printMainMenu() {
+		System.out.println("----Main Menu----");
+		System.out.println("1. Admin Login");
+		System.out.println("2. Professor Login");
+		System.out.println("3. Student Login");
+		System.out.println("4. Exit Application");
+	}
+	static void mainMenu(Admin ad) {
+		Scanner sc = new Scanner(System.in);
+		printMainMenu();
+		System.out.println("Select an option:");
+		int userInp = sc.nextInt();
+		if(userInp==1) {
+			Admin.adminMenu(ad);
+		}else if(userInp==2) {
+			
+		}else if(userInp==3) {
+			
+		}else if(userInp==4) {
+			
+		}else {
+			
+		}
+		
+	}
+	
+	
 
 }
