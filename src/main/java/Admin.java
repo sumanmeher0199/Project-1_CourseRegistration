@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Admin {
@@ -11,9 +13,14 @@ public class Admin {
 		this.password = "Admin";
 	}
 	
-	ArrayList<Professor> professors = new ArrayList<Professor>();
-	ArrayList<Course> courses = new ArrayList<Course>();
-	ArrayList<Student> students = new ArrayList<Student>();
+//	ArrayList<Professor> professors = new ArrayList<Professor>();
+	Map<String, Professor> professors = new HashMap<String, Professor>();
+	
+	ArrayList<String> coursesSequence = new ArrayList<String>();
+	Map<String, Course> courses = new HashMap<String, Course>();
+	
+//	ArrayList<Student> students = new ArrayList<Student>();
+	Map<String, Student> students = new HashMap<String, Student>();
 	
 	boolean checkUsernamePassword() {
 		Scanner sc = new Scanner(System.in);
@@ -28,23 +35,40 @@ public class Admin {
 		
 	}
 	
-	void addCourseInList(Course c) {
-//		System.out.println(c.getName());
-		this.courses.add(c);
+	void addCourseInList(String courseId, Course c) {
+//		this.courses.add(c);
+		this.courses.put(courseId, c);
+	}
+	
+	void addProfessorInList(String profId, Professor p) {
+//		this.professors.add(p);
+		this.professors.put(profId, p);
+	}
+	
+	void addStudentInList(String studId, Student s) {
+//		this.students.add(s);
+		this.students.put(studId, s);
 	}
 	
 	void showAllCourses() {
-		int i=0;
-		for (Course course : courses) {
-			System.out.println(i+")"+course.getName()+"("+course.id+")");
-//			course.displayCourse();
-			System.out.println("------");
+		for (int i=0; i<coursesSequence.size();i++) {
+			Course course = courses.get(coursesSequence.get(i));
+			System.out.println((i+1)+")"+course.getName()+"("+course.id+")");
 		}
 	}
 	
 	void showAllProfessors() {
-		for (var professor : professors) {
-			System.out.println(professor.getName()+"("+professor.getId()+")");
+//		for (var professor : professors) {
+//			System.out.println(professor.getName()+"("+professor.getId()+")");
+//		}
+		for (Map.Entry m : professors.entrySet()) {
+			System.out.println(m.getKey() + " -> " + m.getValue());
+		}
+	}
+	
+	void showAllStudents() {
+		for (Map.Entry m : students.entrySet()) {
+			System.out.println(m.getKey() + " -> " + m.getValue());
 		}
 	}
 
