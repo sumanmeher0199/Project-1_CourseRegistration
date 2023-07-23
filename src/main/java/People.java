@@ -40,7 +40,7 @@ public class People {
 //
 //	}
 	public boolean checkPassword(String pass) {
-		if(this.password.equals(pass))
+		if (this.password.equals(pass))
 			return true;
 		return false;
 	}
