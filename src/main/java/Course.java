@@ -80,6 +80,66 @@ public class Course {
 		setPrice(price);
 
 	}
+	
+	static void addCourseMain(Admin ad) {
+		System.out.println("\n---Add courses---");
+		Scanner sc = new Scanner(System.in);
+		Course c1 = new Course("C" + ad.courseNo++);
+		c1.addCourse();
+		c1.displayCourse();
+		ad.coursesSequence.add(c1.getId());
+		ad.addCourseInList(c1.getId(), c1);
+		System.out.println("Do you want to Create more Courses(Yes/No):");
+		String userInp = sc.next();
+		if (userInp.equalsIgnoreCase("yes")) {
+			addCourseMain(ad);
+		} else if (userInp.equalsIgnoreCase("no")) {
+			return;
+		} else {
+			System.out.println("invalid Input");
+		}
+	}
+	
+	static ArrayList<Course> unAssignedCourse(Admin ad) {
+//		System.out.println("\nSelect a course to Teach.");
+		int numOfCourse = ad.courses.size();
+		ArrayList<Course> arr = new ArrayList<Course>();
+		for (int i = 0; i < numOfCourse; i++) {
+			String courseId = ad.coursesSequence.get(i);
+			Course course = ad.courses.get(courseId);
+			if (course.getProfId() == null) {
+				arr.add(course);
+			}
+		}
+		return arr;
+	}
+	
+	static void showUnAssignedCourse(ArrayList<Course> arr) {
+		if(arr.size()==0) {
+			System.out.println("No Course is Left to be Assigned.");
+			return;
+		}else {
+			System.out.println("\nSelect a course to Teach.");
+			for(int i=0; i<arr.size();i++) {
+				Course course = arr.get(i);
+				System.out.println((i + 1) + ". " + course.getName());
+			}
+		}
+	}
+	
+	static void showAllCourse(Admin ad) {
+		if(ad.coursesSequence.size()==0) {
+			System.out.println("No Course available.");
+			return;
+		}else {
+			System.out.println("\nSelect a course to Learn.");
+			for(int i=0; i<ad.coursesSequence.size();i++) {
+				String courseId = ad.coursesSequence.get(i);
+				Course course = ad.courses.get(courseId);
+				System.out.println((i + 1) + ". " + course.getName());
+			}
+		}
+	}
 
 	
 
@@ -99,19 +159,7 @@ public class Course {
 		commaSeparator();
 	}
 	
-	static void addCourseMain(Admin ad) {
-		Scanner sc = new Scanner(System.in);
-		String cont="yes";
-		while(!cont.equalsIgnoreCase("no")) {
-			Course c1 = new Course("C"+ad.courseNo++);
-			c1.addCourse();
-			c1.displayCourse();
-			ad.coursesSequence.add(c1.getId());
-			ad.addCourseInList(c1.getId(),c1);
-			System.out.println("Do you want to Create more Courses(Yes/No):");
-			cont = sc.next();
-		}
-	}
+
 
 	
 

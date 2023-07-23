@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-import javax.swing.JTable.PrintMode;
 
 public class Launch {
 	public static void main(String[] args) {
@@ -8,73 +7,30 @@ public class Launch {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Welcome to Course Regestration Website: ");
 		Admin ad = new Admin();
-		boolean isAuth = ad.checkUsernamePassword();
-		if(!isAuth) {
-			System.out.println("Authentication Failed.. \nThanx for visiting us..");
-			System.exit(0);
-		}
-		System.out.println("Authenticated..");
+
+//		boolean isAuth = ad.checkUsernamePassword();
+//		if(!isAuth) {
+//			System.out.println("Authentication Failed.. \nThanx for visiting us..");
+//			System.exit(0);
+//		}
+		
+		System.out.println("Authenticated..\n");
 		
 		mainMenu(ad);
 		
 		
-		
-		
-		//Add course
 		String cont="yes";
-//		while(!cont.equalsIgnoreCase("no")) {
-//			Course c1 = new Course("C"+ad.courseNo++);
-//			c1.addCourse();
-//			c1.displayCourse();
-//			ad.coursesSequence.add(c1.getId());
-//			ad.addCourseInList(c1.getId(),c1);
-//			System.out.println("Do you want to Create more Courses:");
-//			cont = sc.next();
-//		}
+
 		
-//		ad.showAllCourses();
-		
-		//Professor's section flow
-		System.out.println("Welcome to Professor's Section.");
-		int numOfCourse = ad.courses.size();
-		for(int i=0;i<numOfCourse;i++) {
-			
-			Professor p1 = new Professor("Pr"+ad.professorNo++);
-			String courseId = ad.coursesSequence.get(i);
-			Course course = ad.courses.get(courseId);
-			System.out.println("Add Professor for Course "+course.getName());
-			p1.addProfessor(course.getId());			
-			course.setProf(p1.getId());
-			ad.addProfessorInList(p1.getId(),p1);
-			p1.displayProfessor(ad);
-		}
-		
-		
-		
-		System.out.println("Professors for all Courses are added.");
-		
-//		ad.showAllProfessors();
-		
-		//Students section flow
-		System.out.println("\nWelcome to Stuents section...");
-		cont="yes";
-		while(!cont.equalsIgnoreCase("no")) {
-			Student s1 = new Student("Sd"+ad.studentNo++);
-			s1.addStudent();
-			System.out.println("Available Course:");
-			ad.showAllCourses();
-			System.out.println("Select a course.");
-			String courseId = ad.coursesSequence.get(sc.nextInt()-1);
-			Course course = ad.courses.get(courseId);
-			s1.setCourse(courseId);
-			course.studIdList.add(s1.getId());
-			System.out.println("selected course: "+ course.getName());
-			ad.addStudentInList(s1.getId(),s1);
-			s1.displayStudent(ad);
-			
-			System.out.println("Do you want to add more Students (Yes/No):");
-			cont = sc.next();
-		}
+//		----- Don't read after this..----
+//		----- Don't read after this..----
+//		----- Don't read after this..----
+//		----- Don't read after this..----
+//		----- Don't read after this..----
+//		----- Don't read after this..----
+//		----- Don't read after this..----
+//		----- Don't read after this..----
+
 		
 		//Professors section
 		System.out.println("\nWelcome to Professor Login.");

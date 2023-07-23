@@ -17,11 +17,13 @@ public class Admin {
 	int professorNo = 1;
 	int studentNo = 1;
 	
+	ArrayList<String> professorSequence = new ArrayList<String>();
 	Map<String, Professor> professors = new HashMap<String, Professor>();
 	
 	ArrayList<String> coursesSequence = new ArrayList<String>();
 	Map<String, Course> courses = new HashMap<String, Course>();
 
+	ArrayList<String> studentSequence = new ArrayList<String>();
 	Map<String, Student> students = new HashMap<String, Student>();
 	
 	boolean checkUsernamePassword() {
@@ -89,14 +91,17 @@ public class Admin {
 		int userInp = sc.nextInt();
 		if(userInp==1) {
 			Course.addCourseMain(ad);
+			adminMenu(ad);
 		}else if(userInp==2) {
-			
+			Professor.addProfessorMain(ad);
+			Admin.adminMenu(ad);
 		}else if(userInp==3) {
-			
+			Student.addStudentMain(ad);
+			Admin.adminMenu(ad);
 		}else if(userInp==4) {
-			
+			Launch.mainMenu(ad);
 		}else {
-			
+			return;
 		}
 	}
 
