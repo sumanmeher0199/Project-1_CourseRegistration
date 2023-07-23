@@ -139,7 +139,7 @@ public class Launch {
 				}
 			}
 			
-			System.out.println("New professot Login (yes/No)?");
+			System.out.println("New Student Login (yes/No)?");
 			cont = sc.next();
 		}
 		
