@@ -51,9 +51,9 @@ public class Course {
 		this.content = content;
 	}
 	
-//	public Professor getProf() {
-//		return prof;
-//	}
+	public String getProfId() {
+		return profId;
+	}
 
 	public void setProf(String professorId) {
 //		this.prof = prof;

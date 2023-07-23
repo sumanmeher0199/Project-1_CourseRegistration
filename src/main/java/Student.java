@@ -27,9 +27,14 @@ public class Student extends People {
 		setPassword(sc.next());
 	}
 	
-//	void addCourse(Course course) {
-//		this.c=course;
-//	}
+	void displayStudent(Admin ad) {
+		System.out.println("Id: "+getId());
+		System.out.println("Name: "+getName());
+		System.out.println("Age: "+ getAge());
+		System.out.println("Course: "+ad.courses.get(enrolledCourseId).getName());
+	}
+	
+
 	void setCourse(String courseId) {
 		enrolledCourseId=courseId;
 	}
@@ -46,6 +51,32 @@ public class Student extends People {
 			}
 		}
 		return null;
+	}
+	
+	void printScoreCard(Admin ad) {
+		Course c = ad.courses.get(enrolledCourseId);
+		Professor p = ad.professors.get(c.getProfId());
+		System.out.println("******************************************************");
+		System.out.println("*            Certificate of Achievement              *");
+		System.out.println("*                                                    *");
+		System.out.println("*              This is to certify that               *");
+		System.out.println("*                                                    *");
+		System.out.println("*                    "+this.getName()+"              *");
+		System.out.println("*                                                    *");
+		System.out.println("*            has successfully completed              *");
+		System.out.println("*                                                    *");
+		System.out.println("*      "+c.getDuration() +" of "+ c.getName()+"      *");
+		System.out.println("*                                                    *");
+		System.out.println("*          containing "+ c.getContent()+"            *");
+		System.out.println("*                                                    *");
+		System.out.println("*            with a grade of "+getMarks()+"          *");
+		System.out.println("*                                                    *");
+		System.out.println("*             under the guidance of                  *");
+		System.out.println("*                                                    *");
+		System.out.println("*                "+ p.getName()+"                     *");
+		System.out.println("*                                                    *");
+		System.out.println("*                                                    *");
+		System.out.println("******************************************************");
 	}
 	
 	

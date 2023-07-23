@@ -66,6 +66,7 @@ public class Launch {
 			course.studIdList.add(s1.getId());
 			System.out.println("selected course: "+ course.getName());
 			ad.addStudentInList(s1.getId(),s1);
+			s1.displayStudent(ad);
 			
 			System.out.println("Do you want to add more Students (Yes/No):");
 			cont = sc.next();
@@ -128,7 +129,8 @@ public class Launch {
 				if(userInp==1) {
 					System.out.println("Your marks is: "+stud.getMarks());
 				}else if(userInp==2) {
-					System.out.println("Report Coming Soon.");
+//					System.out.println("Report Coming Soon.");
+					stud.printScoreCard(ad);
 				}else if(userInp==3){
 					System.out.println("Exiting the Application.");
 					System.out.println("Thanks for visiting us.");
