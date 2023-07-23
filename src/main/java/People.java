@@ -34,10 +34,15 @@ public class People {
 		this.id = id;
 	}
 
-	public String getPassword() {
-
-		return password;
-
+//	public String getPassword() {
+//
+//		return password;
+//
+//	}
+	public boolean checkPassword(String pass) {
+		if(this.password.equals(pass))
+			return true;
+		return false;
 	}
 
 	public void setPassword(String password) {

@@ -7,9 +7,16 @@ public class Course {
 	String duration;
 	String content;
 	String id;
+//	Professor prof;
+	String profId;
+	ArrayList<String> studIdList = new ArrayList<String>();
 	
 	public Course(String id) {
 		this.id = id;
+	}
+	
+	String getId() {
+		return this.id;
 	}
 	
 	public String getName() {
@@ -43,6 +50,15 @@ public class Course {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
+//	public Professor getProf() {
+//		return prof;
+//	}
+
+	public void setProf(String professorId) {
+//		this.prof = prof;
+		profId = professorId;
+	}
 
 	// method to add course
 	void addCourse() {
@@ -65,6 +81,8 @@ public class Course {
 
 	}
 
+	
+
 	private void commaSeparator() {
 		String[] cont = content.split(",");
 		for (String word : cont) {
@@ -81,8 +99,6 @@ public class Course {
 		commaSeparator();
 	}
 
-	ArrayList<Student> stud = new ArrayList<Student>();
-
-	Professor prof;
+	
 
 }
