@@ -146,7 +146,7 @@ public class Student extends People {
 		System.out.println("*         Certificate of Course Completion           *");
 		System.out.println("*                                                    *");
 		System.out.println("*              This is to certify that               *");
-		System.out.println("*                                                  *");
+		System.out.println("*                                                    *");
 		String sname;
 		System.out.print("*");
 		sname = String.format("%s", this.getName());
@@ -156,14 +156,14 @@ public class Student extends People {
 		System.out.println("*            has successfully completed              *");
 		System.out.println("*                                                    *");
 		String sdurationAndCName;
-		System.out.print("*");
-		sdurationAndCName = String.format("%s of %s course", c.getDuration(), c.getName());
+
+		System.out.print("*");sdurationAndCName=String.format("%s of %s course", c.getDuration(),c.getName());
 		centerAlign(sdurationAndCName);
 		System.out.print("*");
 		System.out.println("*                                                    *");
 		String sdescription;
-		System.out.print("*");
-		sdescription = String.format("containing %s", c.getContent());
+
+		System.out.print("*");sdescription=String.format("containing %s", c.getContent());
 		centerAlign(sdescription);
 		System.out.print("*");
 		System.out.println("*                                                    *");

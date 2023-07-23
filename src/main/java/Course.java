@@ -10,15 +10,15 @@ public class Course {
 //	Professor prof;
 	String profId;
 	ArrayList<String> studIdList = new ArrayList<String>();
-	
+
 	public Course(String id) {
 		this.id = id;
 	}
-	
+
 	String getId() {
 		return this.id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -50,7 +50,7 @@ public class Course {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
+
 	public String getProfId() {
 		return profId;
 	}
@@ -80,7 +80,7 @@ public class Course {
 		setPrice(price);
 
 	}
-	
+
 	static void addCourseMain(Admin ad) {
 		System.out.println("\n---Add courses---");
 		Scanner sc = new Scanner(System.in);
@@ -99,7 +99,7 @@ public class Course {
 			System.out.println("invalid Input");
 		}
 	}
-	
+
 	static ArrayList<Course> unAssignedCourse(Admin ad) {
 //		System.out.println("\nSelect a course to Teach.");
 		int numOfCourse = ad.courses.size();
@@ -113,35 +113,33 @@ public class Course {
 		}
 		return arr;
 	}
-	
+
 	static void showUnAssignedCourse(ArrayList<Course> arr) {
-		if(arr.size()==0) {
+		if (arr.size() == 0) {
 			System.out.println("No Course is Left to be Assigned.");
 			return;
-		}else {
+		} else {
 			System.out.println("\nSelect a course to Teach.");
-			for(int i=0; i<arr.size();i++) {
+			for (int i = 0; i < arr.size(); i++) {
 				Course course = arr.get(i);
 				System.out.println((i + 1) + ". " + course.getName());
 			}
 		}
 	}
-	
+
 	static void showAllCourse(Admin ad) {
-		if(ad.coursesSequence.size()==0) {
+		if (ad.coursesSequence.size() == 0) {
 			System.out.println("No Course available.");
 			return;
-		}else {
+		} else {
 			System.out.println("\nSelect a course to Learn.");
-			for(int i=0; i<ad.coursesSequence.size();i++) {
+			for (int i = 0; i < ad.coursesSequence.size(); i++) {
 				String courseId = ad.coursesSequence.get(i);
 				Course course = ad.courses.get(courseId);
 				System.out.println((i + 1) + ". " + course.getName());
 			}
 		}
 	}
-
-	
 
 	private void commaSeparator() {
 		String[] cont = content.split(",");
@@ -151,16 +149,12 @@ public class Course {
 	}
 
 	void displayCourse() {
-		System.out.println("Id: "+id);
-		System.out.println("Name: "+name);
-		System.out.println("Price: "+price);
-		System.out.println("Duration: "+duration);
+		System.out.println("Id: " + id);
+		System.out.println("Name: " + name);
+		System.out.println("Price: " + price);
+		System.out.println("Duration: " + duration);
 		System.out.println("Course Content: ");
 		commaSeparator();
 	}
-	
-
-
-	
 
 }
