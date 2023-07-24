@@ -44,6 +44,7 @@ public class Student extends People {
 			ad.addStudentInList(s1.getId(), s1);
 			System.out.println("Student Created Successfully..");
 			System.out.println(s1.getName() + " will be learning " + ad.courses.get(s1.enrolledCourseId).getName());
+			s1.displayStudent(ad);
 		} else {
 			System.out.println("Redirecting to Admin menu..");
 			return;
@@ -104,68 +105,92 @@ public class Student extends People {
 		} else {
 
 			Course course = ad.courses.get(stud.enrolledCourseId);
-			printStudentSection();
-			System.out.println("Select an option:");
-			int userInp = sc.nextInt();
-			if (userInp == 1) {
-				System.out.println("Your marks is: " + stud.getMarks());
-				studentLogin(ad);
-			} else if (userInp == 2) {
-//				System.out.println("Report Coming Soon.");
-				stud.printScoreCard(ad);
-				studentLogin(ad);
-			} else if (userInp == 3) {
-				studentLogin(ad);
-			}else if(userInp==4) {
-				Launch.mainMenu(ad);
-				return;
-			}else if(userInp==5) {
-				System.out.println("Exiting the Application.");
-				System.out.println("Thanks for visiting us.");
-				System.exit(0);
-			}else {
-				System.out.println("wrong input");
-				System.exit(0);
-			}
+			getUserInput(ad, stud);
+//			printStudentSection();
+//			System.out.println("Select an option:");
+//			int userInp = sc.nextInt();
+//			if (userInp == 1) {
+//				System.out.println("Your marks is: " + stud.getMarks());
+//				studentLogin(ad);
+//			} else if (userInp == 2) {
+////				System.out.println("Report Coming Soon.");
+//				stud.printScoreCard(ad);
+//				studentLogin(ad);
+//			} else if (userInp == 3) {
+//				studentLogin(ad);
+//			}else if(userInp==4) {
+//				Launch.mainMenu(ad);
+//				return;
+//			}else if(userInp==5) {
+//				System.out.println("Exiting the Application.");
+//				System.out.println("Thanks for visiting us.");
+//				System.exit(0);
+//			}else {
+//				System.out.println("wrong input");
+//				System.exit(0);
+//			}
+		}
+	}
+	
+	static void getUserInput(Admin ad, Student stud) {
+		Scanner sc = new Scanner(System.in);
+		printStudentSection();
+		System.out.println("Select an option:");
+		int userInp = sc.nextInt();
+		if (userInp == 1) {
+			System.out.println("Your marks is: " + stud.getMarks());
+			getUserInput(ad,stud);
+		} else if (userInp == 2) {
+//			System.out.println("Report Coming Soon.");
+			stud.printScoreCard(ad);
+			getUserInput(ad,stud);
+		} else if (userInp == 3) {
+			studentLogin(ad);
+		}else if(userInp==4) {
+			Launch.mainMenu(ad);
+			return;
+		}else if(userInp==5) {
+			System.out.println("Exiting the Application.");
+			System.out.println("Thanks for visiting us.");
+			System.exit(0);
+		}else {
+			System.out.println("wrong input");
+			System.exit(0);
 		}
 	}
 
 	static void printStudentSection() {
+		System.out.println("----Student section----");
 		System.out.println("1. Check score");
 		System.out.println("2. Get Report");
-		System.out.println("3. Back");
+		System.out.println("3. Login as Other student");
 		System.out.println("4. Goto Main Menu");
 		System.out.println("5. Exit");
 	}
 
 	void printScoreCard(Admin ad) {
 		Course c = ad.courses.get(enrolledCourseId);
+		String sname;
 		Professor p = ad.professors.get(c.getProfId());
+		sname = String.format("%s", this.getName());
+		String sdurationAndCName;
+		System.out.print("*");sdurationAndCName=String.format("%s of %s course", c.getDuration(),c.getName());
+		String sdescription;
+		System.out.print("*");sdescription=String.format("containing %s", c.getContent());
+		
 		System.out.println("******************************************************");
 		System.out.println("*                                                    *");
 		System.out.println("*         Certificate of Course Completion           *");
 		System.out.println("*                                                    *");
 		System.out.println("*              This is to certify that               *");
 		System.out.println("*                                                    *");
-		String sname;
-		System.out.print("*");
-		sname = String.format("%s", this.getName());
-		centerAlign(sname);
-		System.out.print("*");
+		  System.out.print("*");        centerAlign(sname);    System.out.print("*");
 		System.out.println("*                                                    *");
 		System.out.println("*            has successfully completed              *");
 		System.out.println("*                                                    *");
-		String sdurationAndCName;
-
-		System.out.print("*");sdurationAndCName=String.format("%s of %s course", c.getDuration(),c.getName());
-		centerAlign(sdurationAndCName);
-		System.out.print("*");
+		System.out.print("*");  centerAlign(sdurationAndCName);System.out.print("*");
 		System.out.println("*                                                    *");
-		String sdescription;
-
-		System.out.print("*");sdescription=String.format("containing %s", c.getContent());
-		centerAlign(sdescription);
-		System.out.print("*");
+		System.out.print("*"); 	 centerAlign(sdescription);    System.out.print("*");
 		System.out.println("*                                                    *");
 		String sgrade;
 		System.out.print("*");

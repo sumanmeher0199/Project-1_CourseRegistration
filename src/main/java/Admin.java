@@ -86,6 +86,7 @@ public class Admin {
 	
 	static void adminMenu(Admin ad) {
 		Scanner sc = new Scanner(System.in);
+		
 		printAdminMenu();
 		System.out.println("Select an option:");
 		int userInp = sc.nextInt();

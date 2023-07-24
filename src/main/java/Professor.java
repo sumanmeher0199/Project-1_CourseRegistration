@@ -98,33 +98,40 @@ public class Professor extends People {
 			return;
 		} else {
 			System.out.println("Professor Logged In...");
-			Course course = ad.courses.get(prof.courseIdTeaching);
-			System.out.println("Provide marks for students of course " + course.getName());
-			int i = 1;
-			for (String str : course.studIdList) {
-//				System.out.println(str);
-				Student student = ad.students.get(str);
-				System.out.println(i++ + ". " + student.getName());
-			}
-			System.out.println("Select the student to grade.");
-			int userInp = sc.nextInt();
-			String studentId = course.studIdList.get(userInp-1);
-			Student student = ad.students.get(studentId);
-			System.out.println("Give marks to " + student.getName());
-			int marks = sc.nextInt();
-			student.setMarks(marks);
+			prof.provideMarks(ad);
+			
 
-			// Give marks to more student?
-			System.out.println("Do you want grade other Students(Yes/No):");
-			String userInpStr = sc.next();
-			if (userInpStr.equalsIgnoreCase("yes")) {
-				professorLogin(ad);
-			} else if (userInpStr.equalsIgnoreCase("no")) {
-				return;
-			} else {
-				System.out.println("invalid Input");
-			}
+		}
+		
+		
+	}
+	
+	void provideMarks(Admin ad) {
+		Course course = ad.courses.get(this.courseIdTeaching);
+		System.out.println("Provide marks for students of course " + course.getName());
+		int i = 1;
+		for (String str : course.studIdList) {
+//			System.out.println(str);
+			Student student = ad.students.get(str);
+			System.out.println(i++ + ". " + student.getName());
+		}
+		System.out.println("Select the student to grade.");
+		int userInp = sc.nextInt();
+		String studentId = course.studIdList.get(userInp-1);
+		Student student = ad.students.get(studentId);
+		System.out.println("Give marks to " + student.getName());
+		int marks = sc.nextInt();
+		student.setMarks(marks);
 
+		// Give marks to more student?
+		System.out.println("Do you want grade other Students(Yes/No):");
+		String userInpStr = sc.next();
+		if (userInpStr.equalsIgnoreCase("yes")) {
+			provideMarks(ad);
+		} else if (userInpStr.equalsIgnoreCase("no")) {
+			return;
+		} else {
+			System.out.println("invalid Input");
 		}
 	}
 
