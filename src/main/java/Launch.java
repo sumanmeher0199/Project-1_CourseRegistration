@@ -5,14 +5,15 @@ public class Launch {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Welcome to Course Regestration Website: ");
+		System.out.println("Welcome to Course Regestration Website!");
+		System.out.println();
 		Admin ad = new Admin();
 
-//		boolean isAuth = ad.checkUsernamePassword();
-//		if(!isAuth) {
-//			System.out.println("Authentication Failed.. \nThanx for visiting us..");
-//			System.exit(0);
-//		}
+		boolean isAuth = ad.checkUsernamePassword();
+		if(!isAuth) {
+			System.out.println("Authentication Failed.. \nThanx for visiting us..");
+			System.exit(0);
+		}
 		
 		System.out.println("Authenticated..\n");
 		

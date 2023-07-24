@@ -148,8 +148,7 @@ public class Student extends People {
 		System.out.println("*              This is to certify that               *");
 		System.out.println("*                                                    *");
 		String sname;
-		System.out.print("*");
-		sname = String.format("%s", this.getName());
+		sname = String.format("%s", this.getName()+"*");
 		centerAlign(sname);
 		System.out.print("*");
 		System.out.println("*                                                    *");
@@ -157,30 +156,23 @@ public class Student extends People {
 		System.out.println("*                                                    *");
 		String sdurationAndCName;
 
-		System.out.print("*");sdurationAndCName=String.format("%s of %s course", c.getDuration(),c.getName());
+		System.out.print("*");sdurationAndCName=String.format("%s of %s course", c.getDuration(),c.getName()+"*");
 		centerAlign(sdurationAndCName);
-		System.out.print("*");
 		System.out.println("*                                                    *");
 		String sdescription;
 
 		System.out.print("*");sdescription=String.format("containing %s", c.getContent());
 		centerAlign(sdescription);
-		System.out.print("*");
 		System.out.println("*                                                    *");
 		String sgrade;
-		System.out.print("*");
-		sgrade = String.format("with a grade of %s", getMarks());
-		System.out.print("%");
+		sgrade = String.format("with a grade of %s", getMarks()+"%");
 		centerAlign(sgrade);
-		System.out.print("*");
 		System.out.println("*                                                    *");
 		System.out.println("*                under the guidance of               *");
 		System.out.println("*                                                    *");
 		String pName;
-		System.out.print("*");
 		pName = String.format("%s", p.getName());
 		centerAlign(pName);
-		System.out.print("*");
 		System.out.println("*                                                    *");
 		System.out.println("*                                                    *");
 		System.out.println("******************************************************");

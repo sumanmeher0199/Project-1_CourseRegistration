@@ -140,21 +140,23 @@ public class Course {
 			}
 		}
 	}
-
+	int count=1;
 	private void commaSeparator() {
 		String[] cont = content.split(",");
 		for (String word : cont) {
-			System.out.println(word.trim());
+			System.out.println(count+". "+word.trim());
+			count++;
 		}
 	}
 
 	void displayCourse() {
-		System.out.println("Id: " + id);
-		System.out.println("Name: " + name);
-		System.out.println("Price: " + price);
-		System.out.println("Duration: " + duration);
+		System.out.println("Id:             " + id);
+		System.out.println("Name:           " + name);
+		System.out.println("Price:          Rs." + price);
+		System.out.println("Duration:       " + duration);
 		System.out.println("Course Content: ");
 		commaSeparator();
+		System.out.println();
 	}
 
 }
